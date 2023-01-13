@@ -1,0 +1,23 @@
+@import url('/public/stylesheets/product.css');
+
+body{
+    width: 60%;
+    margin: 0;
+    position: relative;
+    top: 500px;
+    left: 50%;
+
+}
+
+#header h1 {
+    text-align: left;
+    text-indent: 7%;
+}
+
+#Comprar{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

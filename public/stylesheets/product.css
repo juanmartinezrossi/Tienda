@@ -1,0 +1,13 @@
+@import url('/public/stylesheets/main.css');
+body{
+    width: 60%;
+    margin: 0;
+    position: relative;
+    top: 500px;
+    left: 50%;
+
+}
+#header h1 {
+    text-align: left;
+    text-indent: 18%;
+}

@@ -1,0 +1,393 @@
+04 ene 2022 16:42:04,728 INFO  ~ Starting D:\UNI\3R Carrera\Projecte d_Enginyeria de Software\play-1.5.3\tienda2
+04 ene 2022 16:42:04,931 INFO  ~ Module docviewer is available (D:\UNI\3R Carrera\Projecte d_Enginyeria de Software\play-1.5.3\modules\docviewer)
+04 ene 2022 16:42:05,478 WARN  ~ You're running Play! in DEV mode
+04 ene 2022 16:42:05,625 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+04 ene 2022 16:42:09,726 INFO  ~ HikariPool-1 - Starting...
+04 ene 2022 16:42:09,747 INFO  ~ HikariPool-1 - Start completed.
+04 ene 2022 16:42:09,758 INFO  ~ Connected to jdbc:h2:mem:play for default
+04 ene 2022 16:42:11,288 INFO  ~ Application 'Tienda' is now started !
+04 ene 2022 16:42:12,749 ERROR ~ 
+
+@7m93cg7of
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was NullPointerException : Cannot invoke method getAt() on null object.
+
+play.exceptions.TemplateExecutionException: Cannot invoke method getAt() on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null object
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:42:12,946 ERROR ~ 
+
+@7m93cg7og
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was NullPointerException : Cannot invoke method getAt() on null object.
+
+play.exceptions.TemplateExecutionException: Cannot invoke method getAt() on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null object
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:42:27,124 ERROR ~ 
+
+@7m93cg7oh
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was NullPointerException : Cannot get property 'name' on null object.
+
+play.exceptions.TemplateExecutionException: Cannot get property 'name' on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot get property 'name' on null object
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:42:42,732 ERROR ~ 
+
+@7m93cg7oi
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was NullPointerException : null.
+
+play.exceptions.TemplateExecutionException
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException
+	at play.templates.FastTags._field(FastTags.java:189)
+	at play.templates.FastTags$_field$2.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:43:16,799 ERROR ~ 
+
+@7m93cg7oj
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was MissingMethodException : No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@52a96d] Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure).
+
+play.exceptions.TemplateExecutionException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@52a96d]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@52a96d]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:44:08,707 ERROR ~ 
+
+@7m93cg7ok
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was MissingMethodException : No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@1d57186] Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure).
+
+play.exceptions.TemplateExecutionException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@1d57186]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@1d57186]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:47:32,142 ERROR ~ 
+
+@7m93cg7ol
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 8)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was MissingMethodException : No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@594487] Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure).
+
+play.exceptions.TemplateExecutionException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@594487]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure2$_closure3) values: [Template_1000$_run_closure1$_closure2$_closure3@594487]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:7)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:47:56,789 INFO  ~ Restart: 1 classes changed, caused by: java.lang.UnsupportedOperationException: class redefinition failed: attempted to delete a method
+04 ene 2022 16:47:57,273 ERROR ~ 
+
+@7m93cg7om
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 9)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was NullPointerException : Cannot get property 'name' on null object.
+
+play.exceptions.TemplateExecutionException: Cannot get property 'name' on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot get property 'name' on null object
+	at /app/views/Application/LogingYes.html.(line:9)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:8)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:51:23,095 ERROR ~ 
+
+@7m93cg7on
+Internal Server Error (500) for request GET /application/logingyes
+
+Template compilation error (In /app/views/Application/LogingYes.html around line 9)
+The template /app/views/Application/LogingYes.html does not compile : #{if} is not closed.
+
+play.exceptions.TemplateCompilationException: #{if} is not closed.
+	at play.templates.GroovyTemplateCompiler.endTag(GroovyTemplateCompiler.java:339)
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:93)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:39)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:86)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:194)
+	at play.mvc.Controller.renderTemplate(Controller.java:803)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+04 ene 2022 16:51:39,909 ERROR ~ 
+
+@7m93cg7oo
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 16)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was MissingMethodException : No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure3$_closure4) values: [Template_1000$_run_closure1$_closure3$_closure4@6c88a1] Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure).
+
+play.exceptions.TemplateExecutionException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure3$_closure4) values: [Template_1000$_run_closure1$_closure3$_closure4@6c88a1]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure3$_closure4) values: [Template_1000$_run_closure1$_closure3$_closure4@6c88a1]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at /app/views/Application/LogingYes.html.(line:16)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:15)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:52:00,467 ERROR ~ 
+
+@7m93cg7op
+Internal Server Error (500) for request GET /application/logingyes
+
+Template execution error (In /app/views/Application/LogingYes.html around line 17)
+Execution error occurred in template /app/views/Application/LogingYes.html. Exception raised was MissingMethodException : No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure3$_closure4) values: [Template_1000$_run_closure1$_closure3$_closure4@61a51c] Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure).
+
+play.exceptions.TemplateExecutionException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure3$_closure4) values: [Template_1000$_run_closure1$_closure3$_closure4@61a51c]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:83)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:307)
+	at play.templates.Template.render(Template.java:28)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:230)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:28)
+	at play.mvc.Controller.renderTemplate(Controller.java:804)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: Template_1000.$() is applicable for argument types: (Template_1000$_run_closure1$_closure3$_closure4) values: [Template_1000$_run_closure1$_closure3$_closure4@61a51c]
+Possible solutions: is(java.lang.Object), run(), run(), any(), get(java.lang.String), any(groovy.lang.Closure)
+	at /app/views/Application/LogingYes.html.(line:17)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:80)
+	at play.templates.FastTags._form(FastTags.java:169)
+	at play.templates.FastTags$_form$1.call(Unknown Source)
+	at /app/views/Application/LogingYes.html.(line:16)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:282)
+	... 13 more
+04 ene 2022 16:52:10,526 ERROR ~ 
+
+@7m93cg7p0
+Internal Server Error (500) for request GET /application/logingyes
+
+Template compilation error (In /app/views/Application/LogingYes.html around line 22)
+The template /app/views/Application/LogingYes.html does not compile : #{/form} is not opened.
+
+play.exceptions.TemplateCompilationException: #{/form} is not opened.
+	at play.templates.GroovyTemplateCompiler.endTag(GroovyTemplateCompiler.java:331)
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:93)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:39)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:86)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:194)
+	at play.mvc.Controller.renderTemplate(Controller.java:803)
+	at play.mvc.Controller.renderTemplate(Controller.java:782)
+	at play.mvc.Controller.render(Controller.java:843)
+	at controllers.Application.LogingYes(Application.java:149)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:546)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:483)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:477)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:444)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:167)
+	at Invocation.HTTP Request(Play!)

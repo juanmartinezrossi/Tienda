@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    </head>
+    <body>
+        <div id="header" >
+
+            <h1>Tienda Argentina</h1>
+
+            #{if Usuario?.id}
+            <div id="options">
+                Connected as ${Usuario.username}
+                |
+                <a href="@{Application.logout()}">Log Out</a>
+                |
+                <a href="@{Application.settings()}">Settings</a>
+                |
+                <a href="@{Application.Carrito()}">Carrito</a>
+            </div>
+            #{/if}
+
+        </div>
+
+        <div id="content">
+            #{if flash.error}
+            <p class="fError">
+                <strong>${flash.error}</strong>
+            </p>
+            #{/if}
+            #{if flash.success}
+            <p class="fSuccess">
+                <strong>${flash.success}</strong>
+            </p>
+            #{/if}
+
+            #{doLayout /}
+        </div>
+        
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+    </body>
+</html>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+

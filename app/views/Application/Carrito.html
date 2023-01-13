@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Carrito' /}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/carrito.css'}">
+
+<h1>Carrito De Compra</h1>
+
+#{list items:carrito, as:'product'}
+    <li>${product.name}. Precio: ${product.price.format('## ###,000')} €  Cantidad: ${product.cantidadC}</li>
+#{/list}
+
+
+<p>Total antes de oferta: ${totalAntes} €</p>
+<p>Descuento aplicado: ${descuento} %</p>
+<p>Total: ${total} €</p>
+
+
+
+
+#{form @Comprar()}
+    <input type="submit" value="Comprar">
+#{/form}
+<p class="buttons">
+    <button onclick="window.history.back();">Volver atrás</button>
+</p>
+

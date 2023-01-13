@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title:'cambioprod' /}
+<h1> Bienvenido admin </h1>
+
+<h3> Escoge el nombre y precio del producto</h3>
+<style>
+div.fixed {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top= 900px;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="@{CambioPrecio()}" method="get">
+    <div>
+        <label>Nombre</label>
+        <input type="Name" name="Name" size="16" />
+    </div>
+
+
+
+    <div>
+        <label>Precio</label>
+        <input type="precio" name="precio" size="16" />
+
+    </div>
+
+    <p class="buttons">
+        <input type="submit" value="Cambiar precio" />
+    </p>
+
+</form>
+<form action="@{logout()}" method="get">
+    <p class="buttons">
+        <input type="submit" value="LoggOut" />
+    </p>
+</form>
+</body>
+</html>
+

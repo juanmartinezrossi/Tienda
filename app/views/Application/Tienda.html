@@ -1,0 +1,84 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div id = "headerMain">
+    <h1>Con vos. Siempre.</h1>
+</div>
+
+<div id = "headerMain">
+    <h3 style="color:red;background-color:black;">Aprovecha un descuento del 50% Comprando el kit de Mate: Yerba, Mate, Bombilla y Termo.</h3>
+</div>
+
+<div id="MainPage">
+
+    <!-- <h1>Hello ${j ?: 'guest'}!</h1> -->
+
+    #{form @Carrito()}
+    #{field 'Yerba Mate'}
+    <li>
+        <a href="@{Application.Product(0)}">
+            <img src=https://argentinisimo.es/wp-content/uploads/2020/03/ROSAMONTE-de-500-Gr.jpg width="300" height="300">
+            <br>${products[0].name}. Price:${products[0].price}</br>
+        </a>
+    </li>
+    #{/field}
+    #{field 'Camiseta Seleccion'}
+    <li>
+        <a href="@{Application.Product(1)}">
+            <img src="https://i.etsystatic.com/36038611/r/il/d77b30/4513398905/il_794xN.4513398905_bipn.jpg" width="300" height="300">
+            <br>${products[1].name}. Price:${products[1].price}</br>
+        </a>
+    </li>
+
+
+    #{/field}
+    #{/form}
+</div>
+<div id="MainPage">
+    <!-- <h1>Hello ${j ?: 'guest'}!</h1> -->
+
+    #{form @Carrito()}
+    #{field 'Mate Argentino'}
+    <li>
+        <a href="@{Application.Product(2)}">
+            <img src="https://i.etsystatic.com/15792369/r/il/b5c8b2/2122596297/il_570xN.2122596297_2689.jpg" width="300" height="300">
+            <br>${products[2].name}. Price:${products[2].price}</br>
+        </a>
+    </li>
+    #{/field}
+    #{field 'Termo Lumilagro'}
+    <li>
+        <a href="@{Application.Product(3)}">
+            <img src="https://m.media-amazon.com/images/I/31wMs54EBAL._AC_.jpg" width="250" height="300">
+            <br>${products[3].name}. Price:${products[3].price}</br>
+        </a>
+    </li>
+
+
+    #{/field}
+    #{/form}
+</div>
+<div id="MainPage">
+    <!-- <h1>Hello ${j ?: 'guest'}!</h1> -->
+
+    #{form @Carrito()}
+    #{field 'Facón de Plata Gaucho'}
+    <li>
+        <a href="@{Application.Product(4)}">
+            <img src="https://s.lamason.us/arandu.com.ar/media/2021/08/20620P-4-min-300x300.jpg" width="300" height="300">
+            <br>${products[4].name}. Price:${products[4].price}</br>
+        </a>
+    </li>
+    #{/field}
+    #{field 'Bombilla Para Mate'}
+    <li>
+        <a href="@{Application.Product(5)}">
+            <img src="https://www.herbolariodharma.com/pics/contenido/bombilla_curvamediana.jpg" width="300" height="300">
+            <br>${products[5].name}. Price:${products[5].price}</br>
+        </a>
+    </li>
+
+
+    #{/field}
+    #{/form}
+</div>
