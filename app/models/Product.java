@@ -20,12 +20,8 @@ public class Product extends Model {
     @ManyToMany
     public List<Usuario> buyers;
 
-//     @ManyToOne
-//     public Compra compraP;
-
 
     public Product(String name, double price, String description, int stock, String image){
-        //this.buyer = buyer;
         this.name = name;
         this.price = price;
         this.description = description;

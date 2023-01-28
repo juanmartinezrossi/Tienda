@@ -18,8 +18,6 @@ public class Usuario extends Model {
 
     @ManyToMany
     public List<Product> productsList;
-//     @ManyToOne
-//     public Compra compraU;
 
 
     public Usuario(String email, String password, String username) {

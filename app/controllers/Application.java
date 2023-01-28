@@ -105,7 +105,7 @@ public class Application extends Controller {
         new Usuario("juan@gmail.com", "juan", "juan").save();
         new Usuario("david@gmail.com", "david" , "david").save();
         new Usuario("dolors@gmail.com", "dolors" , "dolors").save();
-        new Usuario("admin","admin","admin").save();
+        new Usuario("Admin","Admin","Admin").save();
 
         //Product(String name, double price, String description, int stock, String image)
         new Product(YerbaMate, precioYerbaMate,
@@ -167,7 +167,7 @@ public class Application extends Controller {
         Usuario usuario = Usuario.find("byUsernameAndPassword", user, pass).first();
 
       if (usuario!=null) {
-            if (usuario.username== "admin") {
+            if (usuario.username== "Admin") {
                 Admin();
             }
             else {
