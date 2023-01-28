@@ -326,7 +326,7 @@ public class Application extends Controller {
     //Render ventana carrito y productos en ella
     public static void Carrito(){
         renderArgs.put("carrito", carrito);
-        int totalAntes = 0;
+        int totalAntes = 0;// prueba
         int descuento = 0;
         int total = 0;
         for (Product item : carrito)
