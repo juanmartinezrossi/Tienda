@@ -9,21 +9,19 @@ import play.mvc.results.RenderText;
 
 import java.util.regex.*;
 
-//import sun.util.locale.provider.BaseLocaleDataMetaInfo;
-
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class Application extends Controller {
 
-    public static boolean DBini = false;
-    public static ArrayList<Product> carrito = new ArrayList<Product>();
-    public static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    public static boolean BDinicializada = false;
     public static boolean OfertaAplicada = false;
+    public static ArrayList<Product> carrito = new ArrayList<Product>();
+    public static ArrayList<Product> productosEnOferta = new ArrayList<Product>();
+    public static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
-
-    //Pone el Usuario en sesion para ser usado con HTML
+    //prepara usuario para HTML
     @Before
     static void addUser() {
         Usuario user = connected();
@@ -32,7 +30,7 @@ public class Application extends Controller {
         }
     }
 
-    //Comprueba si hay un usuario ya loggeado
+    //Comprobación de existencia y estado de usuario
     static Usuario connected() {
 
         if(renderArgs.get("user") != null) {
@@ -45,10 +43,10 @@ public class Application extends Controller {
         return null;
     }
 
-    //Comprueba si hay que hacer un Render del Index o de la pagina Principal
+    //Pantalla index HTML
     public static void index() {
-        if (DBini != true){
-            iniDB();
+        if (BDinicializada != true){
+            inicializarBD();
         }
         if(connected() != null) {
             String username = session.get("user");
@@ -57,204 +55,220 @@ public class Application extends Controller {
         render();
     }
 
+    //Pantalla settings HTML
+    public static void settings() {
+        render();
+    }
+
+    //Pantalla principal HTML
+    public static void Tienda(){
+        List<Product> products = Product.findAll();
+        renderArgs.put("products", products);
+        render();
+    }
+    //Pantalla administrador HTML
+    public static void Admin(){
+        render();
+    }
+
+    //Lista de Productos
+    static String YerbaMate = "Yerba Mate";
+    static String CamisetaArgentina = "Camiseta de la seleccion Argentina";
+    static String Mate = "Mate argentino";
+    static String Termo = "Termo Lumilagro";
+    static String Facon = "Facon de Gaucho";
+    static String Bombilla = "Bombilla para Mate";
+
+    //Lista de Precios
+    static double precioYerbaMate = 6.55;
+    static double precioCamisetaArgentina = 120.0;
+    static double precioMate = 35.0;
+    static double precioTermo = 49.0;
+    static double precioFacon = 795.0;
+    static double precioBombilla = 5.0;
+
+    //stock permanente
+    static int stock = 10;
+
+    //imagenes url
+    static String YerbaMateURL = "https://argentinisimo.es/wp-content/uploads/2020/03/ROSAMONTE-de-500-Gr.jpg";
+    static String CamisetaArgentinaURL = "https://i.etsystatic.com/36038611/r/il/d77b30/4513398905/il_794xN.4513398905_bipn.jpg";
+    static String MateURL = "https://i.etsystatic.com/15792369/r/il/b5c8b2/2122596297/il_570xN.2122596297_2689.jpg";
+    static String TermoURL = "https://m.media-amazon.com/images/I/31wMs54EBAL._AC_.jpg";
+    static String FaconURL = "https://s.lamason.us/arandu.com.ar/media/2021/08/20620P-4-min-300x300.jpg";
+    static String BombillaURL = "https://www.herbolariodharma.com/pics/contenido/bombilla_curvamediana.jpg";
 
     //Inizializa la base de datos
-    public  static void iniDB() {
+    public  static void inicializarBD() {
 
         //public User(String email, String password, String username)
         new Usuario("juan@gmail.com", "juan", "juan").save();
         new Usuario("david@gmail.com", "david" , "david").save();
         new Usuario("dolors@gmail.com", "dolors" , "dolors").save();
-        new Usuario("Admin","Admin","Admin").save();
+        new Usuario("admin","admin","admin").save();
 
         //Product(String name, double price, String description, int stock, String image)
-        new Product("Yerba Mate",
-        5,
-
+        new Product(YerbaMate, precioYerbaMate,
         "<p> Producto en Tienda desde ‏ : ‎ 9 de Julio del 1810</p>"+
         "<p> Fabricante ‏ : ‎ Rosamonte</p> Número de modelo del producto ‏ : ‎ 6HGA34</p>",
-        30,
-        "https://argentinisimo.es/wp-content/uploads/2020/03/ROSAMONTE-de-500-Gr.jpg").save();
+        stock, YerbaMateURL).save();
 
-        new Product("Camiseta Selección Argentina",
-        120,
+        new Product(CamisetaArgentina, precioCamisetaArgentina,
         "<p> Fabricante	Adidas</p>"+
-        "<p> Identificador de producto del fabricante	‎Fafeicywx7bougksg-01</p>"+ "<p> Producto en Tienda desde ‏ : ‎ 13 de Enero de 2022</p>"+"<p> Referencia del fabricante	‎  27509FHH5</p>",
-        30,
-        "https://i.etsystatic.com/36038611/r/il/d77b30/4513398905/il_794xN.4513398905_bipn.jpg").save();
+        "<p> Identificador de producto del fabricante	‎Fafeicywx7bougksg-01</p>"+
+                "<p> Producto en Tienda desde ‏ : ‎ 13 de Enero de 2022</p>"+
+                "<p> Referencia del fabricante	‎  27509FHH5</p>",
+        stock,
+        CamisetaArgentinaURL).save();
 
-        new Product("Mate argentino",
-                35,
+        new Product(Mate, precioMate,
                 "<p> Fabricante	Martin Fierro</p>"+
-                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+ "<p> Producto en Tienda desde ‏ : ‎ 1872</p>"+"<p> Referencia del fabricante	‎  rgwgr4v</p>",
-                30,
-                "https://i.etsystatic.com/15792369/r/il/b5c8b2/2122596297/il_570xN.2122596297_2689.jpg").save();
-        new Product("Termo Lumilagro",
-                49,
+                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+
+                        "<p> Producto en Tienda desde ‏ : ‎ 1872</p>"+
+                        "<p> Referencia del fabricante	‎  rgwgr4v</p>",
+                stock, MateURL).save();
+        new Product(Termo, precioTermo,
                 "<p> Fabricante	Lumilagro</p>"+
-                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+ "<p> Producto en Tienda desde ‏ : ‎ 2003</p>"+"<p> Referencia del fabricante	‎  rgwgr4v</p>",
-                30,
-                "https://m.media-amazon.com/images/I/31wMs54EBAL._AC_.jpg").save();
-        new Product("Facon de Gaucho",
-                795,
+                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+
+                        "<p> Producto en Tienda desde ‏ : ‎ 2003</p>"+
+                        "<p> Referencia del fabricante	‎  rgwgr4v</p>",
+                stock, TermoURL).save();
+        new Product(Facon, precioFacon,
                 "<p> Fabricante	Martin Fierro</p>"+
-                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+ "<p> Producto en Tienda desde ‏ : ‎ 1853</p>"+"<p> Referencia del fabricante	‎  rgwgr4v</p>",
-                30,
-                "https://s.lamason.us/arandu.com.ar/media/2021/08/20620P-4-min-300x300.jpg").save();
-        new Product("Bombilla para Mate",
-                5,
+                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+
+                        "<p> Producto en Tienda desde ‏ : ‎ 1853</p>"+
+                        "<p> Referencia del fabricante	‎  rgwgr4v</p>",
+                stock, FaconURL).save();
+        new Product(Bombilla, precioBombilla,
                 "<p> Fabricante	Martin Fierro</p>"+
-                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+ "<p> Producto en Tienda desde ‏ : ‎ 1872</p>"+"<p> Referencia del fabricante	‎  rgwgr4v</p>" ,
-                30,
-                "https://www.herbolariodharma.com/pics/contenido/bombilla_curvamediana.jpg").save();
+                        "<p> Identificador de producto del fabricante	‎475hc25</p>"+
+                        "<p> Producto en Tienda desde ‏ : ‎ 1872</p>"+
+                        "<p> Referencia del fabricante	‎  rgwgr4v</p>" ,
+                stock, BombillaURL).save();
 
-        DBini = true;
-        Logger.info("Base De Datos Inicializada: %s",DBini);
+        //lista de productos en oferta
+        Product mate = Product.find("byName", Mate).first();
+        productosEnOferta.add(mate);
+        Product yerba = Product.find("byName", YerbaMate).first();
+        productosEnOferta.add(yerba);
+        Product bombilla = Product.find("byName", Bombilla).first();
+        productosEnOferta.add(bombilla);
+        Product termo = Product.find("byName", Termo).first();
+        productosEnOferta.add(termo);
 
+        BDinicializada = true;
+        Logger.info("Base de datos inicializada: %s", BDinicializada);
         List<Usuario> ListUsers = Usuario.findAll();
-
         index();
-
     }
 
-    //Hace Loggin
-    public static void login (String user, String pass){
-        Usuario userl = Usuario.find("byUsernameAndPassword", user, pass).first();
+    //Inicio de sesión de usuario
+    public static void login (String user, String pass) {
+        Usuario usuario = Usuario.find("byUsernameAndPassword", user, pass).first();
 
-      if (userl!=null){
-            if (userl.username== "Admin")
-            {
+      if (usuario!=null) {
+            if (usuario.username== "admin") {
                 Admin();
-            }else {
-                session.put("user", userl.username);
-                flash.success("Welcome, " + userl.username);
+            }
+            else {
+                session.put("user", usuario.username);
+                flash.success("¡Te extrañamos!, " + usuario.username);
                 Tienda();
             }
-        } else
-        {
+        }
+      else {
             flash.put("username", user);
-            flash.error("Login failed");
+            flash.error("nombre o contraseña incorrectos");
             index();
         }
-            /*renderText("User o Password incorect");*/
     }
 
-    //Hace Logging Para Android
+    //Inicio de sesión para Android
     public static void loginAndroid (String user, String pass){
             Usuario userl = Usuario.find("byUsernameAndPassword", user, pass).first();
             if (userl!=null){
                 session.put("user", userl.username);
-                renderText("Hola "+user+" !");
+                renderText("¡Te extrañamos!, "+user);
             }
             else{
-                renderText("Usuario o contraseña incorrectos");
+                renderText("nombre o contraseña incorrectos");
             }
         }
 
-    //Hace LoggOut
+    //Cerrar sesión
     public static void logout() {
         session.clear();
         index();
     }
 
-    //Cambia la contraseña
+    //Cambiar contraseña
     public static void saveSettings(String password, String verifyPassword) {
         Usuario connected = connected();
         connected.password = password;
         validation.valid(connected);
         validation.required(verifyPassword);
-        validation.equals(verifyPassword, password).message("Your password doesn't match");
+        validation.equals(verifyPassword, password).message("Las contraseñas no coinciden");
         if(validation.hasErrors()) {
             render("@settings", connected, verifyPassword);
         }
         connected.save();
-        flash.success("Password updated");
+        flash.success("Contraseña actualizada");
         Tienda();
     }
 
-    //Admin cambia el precio de producto
-    public static void CambioPrecio(String Name, int precio) {
-        //Busco el producto
-        Product producto = Product.find("byName",Name).first();
-
-        if (producto != null) {
-            producto.price = precio;
-            producto.save();
-            Admin();
-        }
-        else
-            Admin();
-    }
-
-    //Borra la cuenta
-    public static void unsuscribe (String connectedDelete){
-            Usuario connected = connected();
-            validation.valid(connected);
-            validation.required(connectedDelete);
-            validation.equals(connectedDelete, connected.password).message("Your password doesn't match");
-            if(validation.hasErrors()) {
-                render("@settings", connectedDelete);
-            }
-            Usuario j = Usuario.find("byUsername", connected.username).first();
-            j.delete();
-            flash.success("User Deleted");
-            index();
-            session.clear();
-        }
-
-    //Render la ventana de settings
-    public static void settings() {
-        render();
-    }
-
-    public static boolean patternMatches(String emailAddress, String regexPattern) {
-        return Pattern.compile(regexPattern)
-                .matcher(emailAddress)
-                .matches();
-    }
-
-    //Registra nuevo Usuario
+    //Crear usuario
     public static void saveUser(@Valid Usuario user, String verifyPassword) {
         validation.required(verifyPassword);
-        validation.equals(verifyPassword, user.password).message("Your password doesn't match");
+        validation.equals(verifyPassword, user.password).message("Las contraseñas no coinciden");
 
-        //En caso que haya algun error en las validaciones, notificamos al usuario
+        //Notifica al usuario de errores en la verificación.
         if(validation.hasErrors()) {
             render("@register", user, verifyPassword);
         }
 
-        //Comprobamos que el email este en un formato correcto
+        //Comprobación de formato de correo
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern emailPat = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = emailPat.matcher(user.email);
         if (matcher.find() == true) {
-            Logger.info("he llegado");
-
-
-            //Comprobamos que el usuario no existe
+            Logger.info("Match found");
+            //Verificación de existencia del usuario
             try {
-                Usuario userl = Usuario.find("byUsername", user.username).first();
-
-                if (userl.username != user.username) {
-
-                    flash.success("Este usuario ya existe");
+                Usuario usuarioEnBD = Usuario.find("byUsername", user.username).first();
+                if (usuarioEnBD.username != user.username) {
+                    flash.success("El usuario ya existe");
                     render("@register");
                 }
             } catch (Exception e) {
                 user.create();
                 session.put("user", user.username);
-                flash.success("Welcome, " + user.username);
+                flash.success("¡Te extrañamos!, " + user.username);
                 Tienda();
             }
         }
         else {
-            flash.success("El correo electronico no esta en un formato correcto");
+            flash.success("Formato incorrecto. Por favor, introduzca un email válido.");
             render("@register");
         }
-
     }
 
-    //Registra nuevo Usuario Android
+    //Eliminar usuario
+    public static void unsuscribe (String connectedDelete){
+        Usuario connected = connected();
+        validation.valid(connected);
+        validation.required(connectedDelete);
+        validation.equals(connectedDelete, connected.password).message("Las contraseñas no coinciden");
+        if(validation.hasErrors()) {
+            render("@settings", connectedDelete);
+        }
+        Usuario j = Usuario.find("byUsername", connected.username).first();
+        j.delete();
+        flash.success("Usuario correctamente eliminado");
+        index();
+        session.clear();
+    }
+
+    //Registro de usuario en Android
     public static void saveUserAndroid(String email, String username, String password, String verifyPassword) {
         if(password.equals(verifyPassword)){
             new Usuario(email, password, username).save();
@@ -265,19 +279,8 @@ public class Application extends Controller {
         }
     }
 
-    //Render Pagina principal y ensena Productos
-    public static void Tienda(){
-        List<Product> products = Product.findAll();
-        renderArgs.put("products", products);
-        render();
-    }
-    //Render Pagina administrador
-    public static void Admin(){
-        render();
-    }
 
-
-    //Lista de Productos usada en el Carrito y pagina Principal
+    //Objeto Producto. Búsqueda por ID
    public static void Product(int n){
        List<Product> products = Product.findAll();
        Product a = products.get(n);
@@ -285,8 +288,28 @@ public class Application extends Controller {
        render();
    }
 
-    //Anade compra al carrito
-    public  static void anadirAlCarrito(String Item, int Quantity){
+    //Pantalla carrito HTML
+    public static void Carrito(){
+        renderArgs.put("carrito", carrito);
+        int totalAntes = 0;
+        int descuento = 0;
+        int total = 0;
+        for (Product item : carrito)
+        {
+            totalAntes += item.price*item.cantidadC;
+        }
+        if (OfertaAplicada) {
+            for (Product item : productosEnOferta) {
+                descuento = descuento + (int) (item.price * (0.5-1));
+            }
+            total = totalAntes + descuento;
+        }
+        else
+            total = totalAntes;
+        render(totalAntes, descuento, total);
+    }
+
+   public  static void anadirAlCarrito(String Item, int Quantity){
         Product producto = Product.find("byName", Item).first();
         Logger.info("producto: %s",producto);
         if(carrito.contains(producto)){
@@ -304,46 +327,27 @@ public class Application extends Controller {
         Tienda();
     }
 
+    //Oferta del 50% para productos en lista de ofertas
     public static void aplicarOferta() {
-        if (carrito.contains(Product.find("byName", "Yerba Mate").first()) &&
-                carrito.contains(Product.find("byName", "Mate argentino").first()) &&
-                carrito.contains(Product.find("byName", "Termo Lumilagro").first()) &&
-                carrito.contains(Product.find("byName", "Bombilla para Mate").first())) {
+        int i = 0;
+        for (Product item : carrito) {
+            if (productosEnOferta.contains(Product.find("byName", item.name).first())) {
+                i++;
+            }
+        }
+        if (i==productosEnOferta.size()) {
             List<Product> products = Product.findAll();
             OfertaAplicada = true;
             Logger.info("Oferta Aplicada");
-            flash.success("Oferta Aplicada");
-            Tienda();
+            flash.success("Has añadido el kit de mate al carrito. ¡Te lo rebajamos a mitad de precio!");
         }
         else {
             OfertaAplicada = false;
             Logger.info("No goza de oferta");
-            flash.success("Oferta Aplicada");
-            Tienda();
         }
+        Tienda();
     }
 
-    //Render ventana carrito y productos en ella
-    public static void Carrito(){
-        renderArgs.put("carrito", carrito);
-        int totalAntes = 0;// prueba
-        int descuento = 0;
-        int total = 0;
-        for (Product item : carrito)
-        {
-            totalAntes += item.price*item.cantidadC;
-        }
-        if (OfertaAplicada) {
-            total = (int) (totalAntes * 0.5);
-            descuento = 50;
-        }
-        else
-            total = totalAntes;
-        render(totalAntes, descuento, total);
-    }
-
-
-    //Hace la compra del carrito
     public  static void comprar(){
         LocalDateTime now = LocalDateTime.now();
         for (Product item : carrito)
@@ -351,14 +355,14 @@ public class Application extends Controller {
             Product p = Product.find("byName", item.name).first();
             if(p.stock<=0 || p.stock<= item.cantidadC)
             {
-                flash.success("No quedan más unidades en stock");
+                flash.success("Lo sentimos, este producto está agotado.");
             }
             if (p.stock >= 0)
             {
                 p.stock -= item.cantidadC;
                 p.save();
                 item.cantidadC += p.stock;
-                flash.success("compra realizada con exito");
+                flash.success("Felicidades, ya haz realizado tu compra.");
             }
             Compra c = new Compra(item.cantidadC, now.toString()).save();
             c.ProductsCompra= item;
@@ -367,6 +371,24 @@ public class Application extends Controller {
             c.save();
         }
         carrito.clear();
+        OfertaAplicada = false;
+        Logger.info("El usuario ha realizado una compra.");
+        flash.success("Compra Realizada. ¿Quieres algo más?");
+
         Tienda();
+    }
+
+    //Cambiar precio de producto (solo admin)
+    public static void CambioPrecio(String Name, int precio) {
+        //Busco el producto
+        Product producto = Product.find("byName",Name).first();
+
+        if (producto != null) {
+            producto.price = precio;
+            producto.save();
+            Admin();
+        }
+        else
+            Admin();
     }
 }

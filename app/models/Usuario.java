@@ -28,11 +28,4 @@ public class Usuario extends Model {
         this.username = username;
     }
 
-
-    /*
-    public static User connect(String email, String password) {
-        return find("byEmailAndPassword", email, password).first();
-    }
-    */
-
 }
